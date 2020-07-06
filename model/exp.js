@@ -5,7 +5,11 @@ const schema = new mongoose.Schema({
     pictureUrl: String,
     country: String,
     price: Number,
-    duration: Number
+    duration: Number,
+    city: String,
+    language: String,
+    groupSize: Number,
+    description: String
 })
 
 const Exp = mongoose.model('Exp', schema)
