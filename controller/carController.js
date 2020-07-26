@@ -53,16 +53,15 @@ const getCars = async (req, res) => {
 
 // Get a single car data
 const getCarByID = async (req, res) => {
-    console.log("haha", req.params)
+    console.log("haha", req.params.id)
     const getCar = await Car.findById({
         _id: req.params.id
     })
-    console.log("id here",_id)
+    console.log("here")
     res.send(getCar)
 }
 
 const updateCarByID = async (req, res) => {
-    console.log(req.params)
     try {
         const updateCar = await Car.findOne({
             _id: req.params.id
@@ -76,8 +75,19 @@ const updateCarByID = async (req, res) => {
         console.log(err)
         res.status(400).json({status: "Fail", error: err.message})
     }
-    
 }
 
-module.exports = { createCar, getCars, getCarByID, updateCarByID }
+const DeleteCar = async (req, res) => {
+    try {
+        const deleteCar = await Car.findOneAndDelete({
+            _id: req.params.id
+        })
+        res.status(200).json({status: "OK"})
+    } catch (err) {
+        console.log(err)
+        res.status(400).json({status: "Fail", error: err.message})
+    }
+}
+
+module.exports = { createCar, getCars, getCarByID, updateCarByID, DeleteCar }
 

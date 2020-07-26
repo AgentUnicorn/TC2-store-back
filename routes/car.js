@@ -4,7 +4,8 @@ const {
     createCar, 
     getCars,
     updateCarByID,
-    getCarByID
+    getCarByID,
+    DeleteCar
 } = require('../controller/carController')
 const {
     loginRequired,
@@ -29,5 +30,6 @@ router.route('/:id')
         adminRequired,
         updateCarByID
         )
+    .delete(DeleteCar)
 
 module.exports = router;
