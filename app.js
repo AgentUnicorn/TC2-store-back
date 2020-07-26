@@ -13,7 +13,14 @@ var userRouter = require('./routes/user')
 var authRouter = require('./routes/auth')
 
 var app = express();
-mongoose.connect('mongodb://localhost/tc2-store');
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/tc2-store', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+mongoose.connection.on('connected', () => {
+    console.log("Mongoose is connected!!!!")
+})
 
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }));

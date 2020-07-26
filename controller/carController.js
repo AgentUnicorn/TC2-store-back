@@ -8,7 +8,7 @@ const createCar = async (req, res) => {
         const {
             name,
             brand,
-            // pictureUrl,
+            pictureUrl,
             admin,
             // tags
         } = req.body
@@ -25,7 +25,7 @@ const createCar = async (req, res) => {
         const newCar = await Car.create({
             name,
             brand,
-            // pictureUrl,
+            pictureUrl,
             admin,
             // tags: tagArr
         })
