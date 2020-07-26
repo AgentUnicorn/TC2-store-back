@@ -8,26 +8,26 @@ const createCar = async (req, res) => {
         const {
             name,
             brand,
-            pictureUrl,
+            // pictureUrl,
             admin,
-            tags
+            // tags
         } = req.body
-        if(!name || !brand || !tags || !pictureUrl){
+        if(!name || !brand ){
             return res.status(400).json({
                 status: "Fail",
                 error: "Those are required"
             })
         };
     
-        const tagArr = await Tag.convertToObject(tags)
+        // const tagArr = await Tag.convertToObject(tags)
         // console.log(tagArr)
         
         const newCar = await Car.create({
             name,
             brand,
-            pictureUrl,
+            // pictureUrl,
             admin,
-            tags: tagArr
+            // tags: tagArr
         })
     
         res.status(200).json({

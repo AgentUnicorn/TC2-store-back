@@ -16,8 +16,8 @@ const {
 // http://localhost:5000/car
 router.route('/')
     .post(
-        loginRequired,
-        adminRequired,
+        // loginRequired,
+        // adminRequired,
         createCar
     )
     .get(getCars)
@@ -25,11 +25,13 @@ router.route('/')
 // http://localhost:5000/car/:id
 router.route('/:id')
     .get(getCarByID)
-    .patch(
-        loginRequired,
-        adminRequired,
-        updateCarByID
-        )
     .delete(DeleteCar)
+
+router.route('/edit/:id')
+    .put(
+        // loginRequired,
+        // adminRequired,
+        updateCarByID
+    )
 
 module.exports = router;

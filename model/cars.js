@@ -13,7 +13,7 @@ const schema = new mongoose.Schema({
     },
     pictureUrl: {
         type: String,
-        required: [true, "Picture is required"]
+        required: [false, "Picture is required"]
     },
     admin: {
         type: mongoose.Schema.ObjectId,
