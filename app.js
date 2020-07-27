@@ -3,6 +3,8 @@ var path = require('path');
 require('dotenv').config()
 const bodyParser = require('body-parser');
 var logger = require('morgan');
+var gi = require(`gitignore`);
+
 
 const mongoose = require('mongoose')
 const cors = require('cors')
